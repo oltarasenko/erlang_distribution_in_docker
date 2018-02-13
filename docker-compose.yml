@@ -1,0 +1,44 @@
+version: "3"
+services:
+  simple1:
+    build: .
+    command: simple/default/rel/sample_app/bin/sample_app foreground
+    container_name: simple1.com
+    network_mode: "host"
+    environment:
+      - RELX_REPLACE_OS_VARS=true
+      - EPMDLESS_DIST_PORT=7113
+      - NODE_NAME=simple1
+    ports:
+      - 17114:7113
+
+  simple2:
+    build: .
+    command: simple/default/rel/sample_app/bin/sample_app foreground
+    # command: erl -noshell
+    container_name: simple2.com
+    network_mode: "host"
+    environment:
+      - RELX_REPLACE_OS_VARS=true
+      - EPMDLESS_DIST_PORT=7113
+      - NODE_NAME=simple2
+    ports:
+      - 17113:7113
+    # volumes:
+    #   - ${PWD}:/simple
+
+  # wombat:
+  #   image: erlang:17.5
+  #   command: erl -noshell -name app@wombat.com -setcookie block
+  #   ports:
+  #     - 8888:8080
+  #   container_name: wombat.com
+  #   networks:
+  #     - net1
+  #   volumes:
+  #     - ${PWD}:/wombat
+  #     - ./nsplit_setup.erl:/nsplit_setup.erl
+
+# We're using custom network setup, as it ships with a DNS
+# system which allows containers to communicate by hostnames.
+

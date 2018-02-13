@@ -1,0 +1,16 @@
+{application, sample_app,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { sample_app_app, []}},
+  {applications,
+   [kernel,
+    stdlib, epmdless
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.

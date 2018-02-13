@@ -1,0 +1,4 @@
+[{<<"epmdless">>,
+  {git,"git@github.com:oltarasenko/epmd_less.git",
+       {ref,"9406f119bda3ab5a141b946aa4480aab54109a9c"}},
+  0}].
