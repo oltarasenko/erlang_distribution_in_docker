@@ -5,7 +5,7 @@
   {mod, { sample_app_app, []}},
   {applications,
    [kernel,
-    stdlib, epmdless
+    stdlib, epmdless, erlang_node_discovery
    ]},
   {env,[]},
   {modules, []},

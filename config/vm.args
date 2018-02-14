@@ -1,4 +1,4 @@
--sname ${NODE_NAME}
+-name ${NODE_NAME}
 -start_epmd false
 
 -setcookie sample_app_cookie

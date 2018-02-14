@@ -2,28 +2,40 @@ version: "3"
 services:
   simple1:
     build: .
+    # domainname: "oleg.local"
     command: simple/default/rel/sample_app/bin/sample_app foreground
-    container_name: simple1.com
     network_mode: "host"
     environment:
       - RELX_REPLACE_OS_VARS=true
-      - EPMDLESS_DIST_PORT=7113
-      - NODE_NAME=simple1
-    ports:
-      - 17114:7113
+      - EPMDLESS_DIST_PORT=17012
+      - NODE_NAME=simple1@oleg.local
 
   simple2:
     build: .
     command: simple/default/rel/sample_app/bin/sample_app foreground
-    # command: erl -noshell
-    container_name: simple2.com
+    # command: erl -noinput
     network_mode: "host"
+
+    hostname: oleg
+    # domainname: "oleg.local"
     environment:
       - RELX_REPLACE_OS_VARS=true
-      - EPMDLESS_DIST_PORT=7113
-      - NODE_NAME=simple2
-    ports:
-      - 17113:7113
+      - EPMDLESS_DIST_PORT=17013
+      - NODE_NAME=simple2@oleg.local
+
+  simple3:
+    build: .
+    # command: simple/default/rel/sample_app/bin/sample_app foreground
+    command: erl -noinput
+    network_mode: "host"
+
+    hostname: oleg
+    domainname: "oleg.local"
+    environment:
+      - RELX_REPLACE_OS_VARS=true
+      - EPMDLESS_DIST_PORT=17014
+      - NODE_NAME=simple3@oleg.local
+
     # volumes:
     #   - ${PWD}:/simple
 
