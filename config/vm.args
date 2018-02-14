@@ -1,15 +1,11 @@
 -name ${NODE_NAME}
+
 -start_epmd false
 
 -setcookie sample_app_cookie
 
 -proto_dist epmdless_proto
 -epmd_module epmdless_client
-
--kernel inet_dist_listen_min 10000
--kernel inet_dist_listen_max 10001
-
-
 
 +K true
 +A30

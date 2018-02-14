@@ -1,56 +1,29 @@
 version: "3"
 services:
-  simple1:
+  app1:
     build: .
-    # domainname: "oleg.local"
-    command: simple/default/rel/sample_app/bin/sample_app foreground
-    network_mode: "host"
+    command: sample/default/rel/sample_app/bin/sample_app foreground
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17012
-      - NODE_NAME=simple1@oleg.local
+      - NODE_NAME=app1@host1.local
+    ports:
+      - 17012:17012
 
-  simple2:
+  app2:
     build: .
-    command: simple/default/rel/sample_app/bin/sample_app foreground
-    # command: erl -noinput
-    network_mode: "host"
-
-    hostname: oleg
-    # domainname: "oleg.local"
+    command: sample/default/rel/sample_app/bin/sample_app foreground
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17013
-      - NODE_NAME=simple2@oleg.local
+      - NODE_NAME=app2@host1.local
+    ports:
+      - 17013:17013
 
-  simple3:
+  app3:
     build: .
-    # command: simple/default/rel/sample_app/bin/sample_app foreground
-    command: erl -noinput
-    network_mode: "host"
-
-    hostname: oleg
-    domainname: "oleg.local"
+    command: sample/default/rel/sample_app/bin/sample_app foreground
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17014
-      - NODE_NAME=simple3@oleg.local
-
-    # volumes:
-    #   - ${PWD}:/simple
-
-  # wombat:
-  #   image: erlang:17.5
-  #   command: erl -noshell -name app@wombat.com -setcookie block
-  #   ports:
-  #     - 8888:8080
-  #   container_name: wombat.com
-  #   networks:
-  #     - net1
-  #   volumes:
-  #     - ${PWD}:/wombat
-  #     - ./nsplit_setup.erl:/nsplit_setup.erl
-
-# We're using custom network setup, as it ships with a DNS
-# system which allows containers to communicate by hostnames.
-
+      - NODE_NAME=app3@host2.local

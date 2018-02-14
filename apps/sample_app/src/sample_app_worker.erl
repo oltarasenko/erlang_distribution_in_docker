@@ -18,7 +18,7 @@ start_link() ->
     gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 
 init([]) ->
-    erlang:send_after(30000, self(), check_nodes),
+    erlang:send_after(10000, self(), check_nodes),
     {ok, #state{}}.
 
 handle_call(_Request, _From, State) ->
@@ -29,7 +29,7 @@ handle_cast(_Msg, State) ->
 
 handle_info(check_nodes, State) ->
     error_logger:info_msg("Currently I know ~p nodes ~n", [nodes()]),
-    erlang:send_after(15000, self(), check_nodes),
+    erlang:send_after(20000, self(), check_nodes),
     {noreply, State};
 handle_info(_Info, State) ->
     {noreply, State}.
