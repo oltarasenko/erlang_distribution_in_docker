@@ -29,7 +29,7 @@ handle_cast(_Msg, State) ->
 
 handle_info(check_nodes, State) ->
     error_logger:info_msg("Currently I know ~p nodes ~n", [nodes()]),
-    erlang:send_after(20000, self(), check_nodes),
+    erlang:send_after(60000, self(), check_nodes),
     {noreply, State};
 handle_info(_Info, State) ->
     {noreply, State}.

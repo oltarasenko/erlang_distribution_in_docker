@@ -2,7 +2,7 @@
 
 -start_epmd false
 
--setcookie sample_app_cookie
+-setcookie ${COOKIE}
 
 -proto_dist epmdless_proto
 -epmd_module epmdless_client

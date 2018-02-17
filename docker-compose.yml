@@ -6,7 +6,8 @@ services:
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17012
-      - NODE_NAME=app1@host1.local
+      - NODE_NAME=app1@10.68.206.60
+      - COOKIE=cookie
     ports:
       - 17012:17012
 
@@ -16,14 +17,20 @@ services:
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17013
-      - NODE_NAME=app2@host1.local
+      - NODE_NAME=app2@10.68.206.60
+      - COOKIE=cookie
     ports:
       - 17013:17013
 
   app3:
     build: .
-    command: sample/default/rel/sample_app/bin/sample_app foreground
+    # Just to be able to connect to the node
+    command: erl -noinput
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17014
-      - NODE_NAME=app3@host2.local
+      - NODE_NAME=app3@10.68.206.60
+      - COOKIE=cookie
+    ports:
+      - 17014:17014
+
