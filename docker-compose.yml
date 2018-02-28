@@ -6,7 +6,7 @@ services:
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17012
-      - NODE_NAME=app1@10.68.206.60
+      - NODE_NAME=app1@host1.local
       - COOKIE=cookie
     ports:
       - 17012:17012
@@ -17,7 +17,7 @@ services:
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17013
-      - NODE_NAME=app2@10.68.206.60
+      - NODE_NAME=app2@host1.local
       - COOKIE=cookie
     ports:
       - 17013:17013
@@ -29,7 +29,7 @@ services:
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17014
-      - NODE_NAME=app3@10.68.206.60
+      - NODE_NAME=app3@host1.local
       - COOKIE=cookie
     ports:
       - 17014:17014

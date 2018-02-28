@@ -11,7 +11,13 @@ The application uses:
 
  1) Build the release `rebar3 release`
  2) Build the docker container with the app inside `docker-compose build`
- 3) Configure your `/etc/hosts` to add host1.com/host2.com aliases (production hosts will probably have their own hostnames)
+ 3) Configure your `/etc/hosts` to add host1.com/host2.com aliases (production hosts will probably have their own hostnames). For example my contains the following:
+
+    ```
+        10.154.1.53     host1.local
+        10.154.1.58     host2.local
+    ```
+
  4) Run `docker-compose up app1 app2` on host1.com machine
  5) Run `docker-compose up app3` on host2.com machine
 
