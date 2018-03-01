@@ -2,33 +2,48 @@ version: "3"
 services:
   app1:
     build: .
-    command: sample/default/rel/sample_app/bin/sample_app foreground
+    command: _build/default/rel/sample_app/bin/sample_app foreground
+    container_name: host1.com
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17012
-      - NODE_NAME=app1@10.68.206.60
+      - NODE_NAME=app1@host1.com
       - COOKIE=cookie
     ports:
       - 17012:17012
+    networks:
+      - net1
 
   app2:
     build: .
-    command: sample/default/rel/sample_app/bin/sample_app foreground
+    command: _build/default/rel/sample_app/bin/sample_app foreground
+    container_name: host2.com
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17013
-      - NODE_NAME=app2@10.68.206.60
+      - NODE_NAME=app2@host2.com
       - COOKIE=cookie
     ports:
       - 17013:17013
+    networks:
+      - net1
 
   app3:
     build: .
-    command: sample/default/rel/sample_app/bin/sample_app foreground
+    command: _build/default/rel/sample_app/bin/sample_app foreground
+    container_name: host3.com
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17014
-      - NODE_NAME=app3@10.68.206.60
+      - NODE_NAME=app3@host3.com
       - COOKIE=cookie
     ports:
       - 17014:17014
+    networks:
+      - net1
+
+# We're using custom network setup, as it ships with a DNS
+# system which allows containers to communicate by hostnames.
+networks:
+  net1:
+    driver: bridge
