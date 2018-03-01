@@ -2,7 +2,7 @@ version: "3"
 services:
   app1:
     build: .
-    command: sample/default/rel/sample_app/bin/sample_app foreground
+    command: _build/default/rel/sample_app/bin/sample_app foreground
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17012
@@ -13,7 +13,7 @@ services:
 
   app2:
     build: .
-    command: sample/default/rel/sample_app/bin/sample_app foreground
+    command: _build/default/rel/sample_app/bin/sample_app foreground
     environment:
       - RELX_REPLACE_OS_VARS=true
       - EPMDLESS_DIST_PORT=17013
