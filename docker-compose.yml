@@ -6,7 +6,7 @@ services:
     container_name: host1.com
     environment:
       - RELX_REPLACE_OS_VARS=true
-      - EPMDLESS_DIST_PORT=17012
+      - EPMDLESS_DIST_PORT=17012 # Define distribution port for given app
       - NODE_NAME=app1@host1.com
       - COOKIE=cookie
     ports:
@@ -20,7 +20,7 @@ services:
     container_name: host2.com
     environment:
       - RELX_REPLACE_OS_VARS=true
-      - EPMDLESS_DIST_PORT=17013
+      - EPMDLESS_DIST_PORT=17013 # Define distribution port for given app
       - NODE_NAME=app2@host2.com
       - COOKIE=cookie
     ports:
@@ -34,7 +34,7 @@ services:
     container_name: host3.com
     environment:
       - RELX_REPLACE_OS_VARS=true
-      - EPMDLESS_DIST_PORT=17014
+      - EPMDLESS_DIST_PORT=17014 # Define distribution port for given app
       - NODE_NAME=app3@host3.com
       - COOKIE=cookie
     ports:

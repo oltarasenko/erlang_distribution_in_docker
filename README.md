@@ -14,15 +14,8 @@ This short example shows how to use epmdless to connect nodes without epmd
 
  0) Checkout to the epmdless_example branch `git checkout epmdless_example`
  1) Build the docker image with the app inside `docker-compose build`
- 2) Configure your `/etc/hosts` to add host1.com/host2.com aliases (production hosts will probably have their own hostnames). For example my contains the following:
-
-    ```
-        10.154.1.53     host1.local
-        10.154.1.58     host2.local
-    ```
-
- 3) Run `docker-compose up` on host1.com machine
- 4) Connect to app3 machine and start sample app in the console mode:
+ 2) Run `docker-compose up`
+ 3) Connect to app3 machine and start sample app in the console mode:
 
     $ docker-compose exec app3 bash
     $ _build/default/rel/sample_app/bin/sample_app console
@@ -36,6 +29,7 @@ This short example shows how to use epmdless to connect nodes without epmd
     (app3@host1.local)5> nodes().
     ['app1@host1.local']
 
+Which means that you've successfully connected nodes without epmd
 
  ## Epmdless with node discovery ##
 
@@ -60,9 +54,7 @@ Lets try it out:
 
  0) Checkout to the master branch `git checkout master`
  1) Build the docker image with the app inside `docker-compose build`
- 2) This time we're going to run the docker network, with custom DNS, which will resolve host1..3.com to container
-    ips, so there is no need to do anything here.
- 3) Run docker-compose up to bring everything up
+ 2) Run docker-compose up to bring everything up
 
 You will start getting:
 ```
