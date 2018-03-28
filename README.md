@@ -16,7 +16,7 @@ This short example shows how to use epmdless to connect nodes without epmd
  1) Build the docker image with the app inside `docker-compose build`
  2) Run `docker-compose up`
  3) Connect to app3 machine and start sample app in the console mode:
-
+```
     $ docker-compose exec app3 bash
     $ _build/default/rel/sample_app/bin/sample_app console
     (app3@host1.local)1> epmdless_dist:add_node('app1@host1.local', 17012).
@@ -28,7 +28,7 @@ This short example shows how to use epmdless to connect nodes without epmd
     (app3@host1.local)3> net_adm:ping('app1@host1.local').
     (app3@host1.local)5> nodes().
     ['app1@host1.local']
-
+```
 Which means that you've successfully connected nodes without epmd
 
  ## Epmdless with node discovery ##
