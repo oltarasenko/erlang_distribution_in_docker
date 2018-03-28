@@ -1,4 +1,4 @@
-FROM erlang:20.2.2
+FROM erlang:20.3
 
 # Updating apt repository of the related OS
 RUN apt-get clean && \
