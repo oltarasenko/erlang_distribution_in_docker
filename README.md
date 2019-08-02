@@ -19,15 +19,15 @@ This short example shows how to use epmdless to connect nodes without epmd
 ```
     $ docker-compose exec app3 bash
     $ _build/default/rel/sample_app/bin/sample_app console
-    (app3@host1.local)1> epmdless_dist:add_node('app1@host1.local', 17012).
+    (app3@host1.com)1> epmdless_dist:add_node('app1@host1.com', 17012).
     =ERROR REPORT==== 28-Feb-2018::11:25:48 ===
-    Adding a node: 'app1@host1.local'
+    Adding a node: 'app1@host1.com'
     ok
-    (app3@host1.local)2> epmdless_dist:list_nodes().
-    [{'app1@host1.local',{"host1.local",17012}}]
-    (app3@host1.local)3> net_adm:ping('app1@host1.local').
-    (app3@host1.local)5> nodes().
-    ['app1@host1.local']
+    (app3@host1.com)2> epmdless_dist:list_nodes().
+    [{'app1@host1.com',{"host1.com",17012}}]
+    (app3@host1.com)3> net_adm:ping('app1@host1.com').
+    (app3@host1.com)5> nodes().
+    ['app1@host1.com']
 ```
 Which means that you've successfully connected nodes without epmd
 
@@ -59,7 +59,7 @@ Lets try it out:
 You will start getting:
 ```
 2_1  | =INFO REPORT==== 14-Feb-2018::13:09:34 ===
-app2_1  | Currently I know ['app1@host1.local','app3@host2.local'] nodes
+app2_1  | Currently I know ['app1@host1.com','app3@host2.com'] nodes
 ```
 which means that the nodes were able to discover each other.
 
